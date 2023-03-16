@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Gasto } from 'src/app/interfaces/gasto.interface';
 import { PresupuestoService } from 'src/app/services/presupuesto.service';
 
 @Component({
@@ -10,15 +11,21 @@ import { PresupuestoService } from 'src/app/services/presupuesto.service';
 export class ListarGastosComponent implements OnInit, OnDestroy {
 
   subscription:Subscription;
+  presupuesto:number=0;
+  restante:number=0;
+  listaGastos:Gasto[]=[];
   constructor(private _presupuestoService:PresupuestoService){
-    this.subscription=this._presupuestoService.getGastos().subscribe(gastos=>{
-      console.log(gastos);
+    this.subscription=this._presupuestoService.getGastos().subscribe(gasto=>{
+      this.restante=this.restante-gasto.costo;
+      this.listaGastos.push(gasto);
     })
   }
   ngOnDestroy(): void {
    this.subscription.unsubscribe();
   }
   ngOnInit(): void {
+    this.presupuesto=this._presupuestoService.presupuesto;
+    this.restante=this._presupuestoService.restante;
   }
 
 }
