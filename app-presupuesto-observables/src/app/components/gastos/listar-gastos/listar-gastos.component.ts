@@ -27,5 +27,15 @@ export class ListarGastosComponent implements OnInit, OnDestroy {
     this.presupuesto=this._presupuestoService.presupuesto;
     this.restante=this._presupuestoService.restante;
   }
+  aplicarColorRestante(){
+    if(this.presupuesto /4 > this.restante){
+      return 'alert alert-danger';
+    }
+    if(this.presupuesto /2 > this.restante){
+      return 'alert alert-warning';
+    }
+
+    return 'alert alert-secondary'
+  }
 
 }

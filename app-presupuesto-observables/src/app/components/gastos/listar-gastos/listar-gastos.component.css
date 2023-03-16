@@ -1,3 +1,11 @@
 .sizeAlert{
     font-size: 1.2rem;
 }
+.badge{
+    font-size: 1.2rem;
+}
+.alert-secondary {
+    --bs-alert-bg: #d1d7dd;
+    --bs-alert-border-color: #b6babf;
+    --bs-alert-color: #586066;
+}

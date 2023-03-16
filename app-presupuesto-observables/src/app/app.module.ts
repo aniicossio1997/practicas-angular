@@ -8,6 +8,7 @@ import { IngresarGastoComponent } from './components/gastos/ingresar-gasto/ingre
 import { ListarGastosComponent } from './components/gastos/listar-gastos/listar-gastos.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListarGastosComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

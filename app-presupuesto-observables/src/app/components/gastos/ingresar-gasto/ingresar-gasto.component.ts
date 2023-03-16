@@ -20,6 +20,7 @@ export class IngresarGastoComponent implements OnInit {
   }
 
   handleForm(){
+    
     if(this.costo>this._presupuestoService.restante){
       this.isFormIncorrect=true;
       this.textIncorrect='El costo ingresada supera al presupuesto';
