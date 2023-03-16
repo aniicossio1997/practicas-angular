@@ -1,0 +1,8 @@
+button{
+    width: 100%;
+}
+.row{
+    box-sizing: 'border-box' !important;
+     margin-top:0 !important; 
+    margin-right:0 !important;
+    }
