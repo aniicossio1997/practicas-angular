@@ -1,0 +1,48 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HeroPageComponent } from './pages/hero-page/hero-page.component';
+import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
+import { ListPageComponent } from './pages/list-page/list-page.component';
+import { NewHeroPageComponent } from './pages/new-hero-page/new-hero-page.component';
+import { SearchHeroPageComponent } from './pages/search-hero-page/search-hero-page.component';
+
+//localhost:4200/heroes
+const routes: Routes = [
+  {
+    path:'',
+    component:LayoutPageComponent,
+    children:[
+      {
+        path:'new-hero',
+        component:NewHeroPageComponent
+       },
+       {
+        path:'search',
+        component:SearchHeroPageComponent,
+       },
+       {
+        path:'edit/:id',
+        component:NewHeroPageComponent,
+       },
+       {
+        path:'list',component:ListPageComponent
+       },
+       {
+        //siempre debe estar abajo
+        path:':id',
+        component:HeroPageComponent,
+       },
+       {
+        path:'**',
+        redirectTo:'list',
+       },
+
+    ]
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class HeroesRoutingModule { }
