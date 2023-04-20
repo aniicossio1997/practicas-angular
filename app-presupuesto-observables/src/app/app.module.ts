@@ -9,6 +9,8 @@ import { ListarGastosComponent } from './components/gastos/listar-gastos/listar-
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { CommonModule } from '@angular/common';
     IngresarPresupuestoComponent,
     IngresarGastoComponent,
     ListarGastosComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,10 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
+    SharedModule
   ],
+  exports:[SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })

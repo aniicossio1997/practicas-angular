@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, from, map, Observable, Subject, tap } from 'rxjs';
 import { Gasto } from '../interfaces/gasto.interface';
 
 @Injectable({
@@ -7,19 +7,30 @@ import { Gasto } from '../interfaces/gasto.interface';
 })
 export class PresupuestoService {
   presupuesto:number=0;
-  restante:number=0;
+  restante= new BehaviorSubject(0);
   listaGastos:Gasto[]=[]
   private gastos$=new Subject<Gasto>();
   constructor() { }
   
   addGasto(gasto:Gasto){
     //this.listaGastos.push(gasto);
-    this.restante=this.restante-gasto.costo;
-    //observable
+    this.restante.pipe(tap(
+      data=> console.log(data)
+    ))
+   
     this.gastos$.next(gasto);
+  }
+
+  getRestanteObservable(){
+    return this.restante.asObservable();
   }
 
   getGastos():Observable<Gasto>{
     return this.gastos$.asObservable();
+  }
+  getRestante():number{
+    let restoNumber:number=0;
+    this.restante.subscribe(data=>restoNumber=data);
+    return restoNumber;
   }
 }

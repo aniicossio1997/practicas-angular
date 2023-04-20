@@ -19,10 +19,24 @@
 <div class="row">
     <div class="col-lg-12">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex justify-content-between" *ngFor="let gasto of listaGastos">
+            <li class="list-group-item d-flex justify-content-between" *ngFor="let gasto of listaGastos;index as id">
+               
                 <strong>{{gasto.titulo | titlecase }} </strong>
                 <span class="badge rounded-pill  bg-secondary">$ {{gasto.costo}} </span>
+                <button class="btn btn-outline-danger rounded-3 fw-bold" (click)="open(id)" >X</button>
            </li>
         </ul>
     </div>
 </div>
+<app-confirmation-modal
+#confirmationModal (newConfirmationEvent)="getConfirmationValue($event)" [modalStyle]="modalStyle"
+[modalTitle]="modalTitle" 
+[modalBody]="modalBody"
+[modalButtonColor]="modalButtonColor"
+[modalButtonCancelTitle]="modalButtonCancelTitle"
+[modalButtonOkTitle]="modalButtonOkTitle"
+>
+<p subtitle class="text-secondary">
+    Se eliminara de forma permanente el articulo
+</p>
+</app-confirmation-modal>

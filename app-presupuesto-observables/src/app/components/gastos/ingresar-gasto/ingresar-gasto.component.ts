@@ -21,7 +21,7 @@ export class IngresarGastoComponent implements OnInit {
 
   handleForm(){
     
-    if(this.costo>this._presupuestoService.restante){
+    if(this.costo>this._presupuestoService.getRestante()){
       this.isFormIncorrect=true;
       this.textIncorrect='El costo ingresada supera al presupuesto';
       return;
@@ -36,9 +36,17 @@ export class IngresarGastoComponent implements OnInit {
       titulo:this.titulo
     }
     this._presupuestoService.addGasto(GASTO);
+    let total:number=0;
+
+    this._presupuestoService.getRestanteObservable().subscribe( data=>
+      {
+        total=data-GASTO.costo;
+      })
+    this._presupuestoService.restante.next(total);
     this.isFormIncorrect=false;
     this.costo=0;
     this.titulo='';
+
   }
 
 }

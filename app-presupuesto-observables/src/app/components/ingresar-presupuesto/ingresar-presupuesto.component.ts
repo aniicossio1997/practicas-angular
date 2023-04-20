@@ -18,7 +18,8 @@ export class IngresarPresupuestoComponent {
     if(this.cantidad >0){
       this.cantidadIncorrenta=false
       this._presupuestoService.presupuesto=this.cantidad;
-      this._presupuestoService.restante=this.cantidad;
+      //this._presupuestoService.restante=this.cantidad;
+      this._presupuestoService.restante.next(this.cantidad)
       this.router.navigate(['/gastos']);
     }else{
       this.cantidadIncorrenta=true
