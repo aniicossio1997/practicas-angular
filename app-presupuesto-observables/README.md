@@ -1,27 +1,12 @@
-# AppPresupuestoObservables
+# APP - presupuesto
+La aplicación fue desarrollada en angular, con comunicación mediante servicios y observables.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+**Librerías de componentes**:
+* ng-bootstrap
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Se puede ingresar un monto mayor, y de ahí en adelante se le habilitara la siguiente pestaña para ingresar gastos
+![enter image description here](https://raw.githubusercontent.com/aniicossio1997/first-angular/main/app-presupuesto-observables/1_pantalla_principal.png)
+2. Podrá ingresar gastos como así poder visualizar dichos gastos, además de contar con la opción de poder eliminar gastos.
+![enter image description here](https://raw.githubusercontent.com/aniicossio1997/first-angular/main/app-presupuesto-observables/2_pantalla_lista_presupuesto.png)
+3. Antes de borrar se deberá confirmar la eliminación de dicho gasto. ![enter image description here](https://raw.githubusercontent.com/aniicossio1997/first-angular/main/app-presupuesto-observables/3_modal.png)
