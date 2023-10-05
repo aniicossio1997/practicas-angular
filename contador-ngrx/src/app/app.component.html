@@ -1,0 +1,40 @@
+<div class="row text-center">
+  <h2>Con redux: {{contadorNgrx}}</h2>
+</div>
+<div class="row text-center">
+  <div class="col">
+    <button class="btn btn-primary" (click)="incrementNgrx()">Increment</button>
+    <button class="btn btn-info mx-5" (click)="decrementNgrx()">Decrement</button>
+  </div>
+</div>
+
+<hr>
+<div class="row text-center">
+  <div class="col">
+    <app-hijo-ngrx ></app-hijo-ngrx>
+  </div>
+</div>
+
+
+<hr>
+<hr>
+<h2>SIN REDUCER</h2>
+<div class="row text-center">
+  <h1>{{contador}}</h1>
+</div>
+<div class="row text-center">
+  <div class="col">
+    <button class="btn btn-primary" (click)="increment()">Increment</button>
+    <button class="btn btn-info mx-5" (click)="decrement()">Decrement</button>
+  </div>
+</div>
+
+<hr>
+<div class="row text-center">
+  <div class="col">
+    <app-hijo [contador]="contador" (cambioContador)="contador=$event" ></app-hijo>
+  </div>
+</div>
+<hr>
+
+
