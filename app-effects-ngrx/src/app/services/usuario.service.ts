@@ -14,7 +14,7 @@ export class UsuarioService {
 
 
   getUsers() {
-    return this.http.get(`${ this.url }/users?per_page=6`)
+    return this.http.get(`${ this.url }/users?per_page=9`)
           .pipe(
             map( (resp:any) => resp.data)
           );
